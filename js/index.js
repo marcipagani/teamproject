@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+<<<<<<< HEAD
     const username = localStorage.getItem('username');
+=======
+    const username = localStorage.getItem('currentUsername');
+>>>>>>> 64962b6 (semana 4)
     
     // Si no hay usuario autenticado, redirigir a login.html
     if (!username) {
@@ -29,7 +33,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Manejo del botón de cerrar sesión
     const logoutButton = document.getElementById('logoutButton');
     logoutButton.addEventListener('click', function () {
+<<<<<<< HEAD
         localStorage.removeItem('username');
         window.location.href = 'login.html';
     });
 });
+=======
+      
+        localStorage.removeItem('currentUsername');
+        window.location.href = 'login.html';
+    });
+});
+>>>>>>> 64962b6 (semana 4)

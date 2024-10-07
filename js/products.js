@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function() {
+=======
+document.addEventListener("DOMContentLoaded", function() { 
+>>>>>>> 64962b6 (semana 4)
     const categoryId = localStorage.getItem("catID");
 
     if (!categoryId) {
@@ -31,12 +35,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function displayProducts(productList) {
         const container = document.getElementById('product-list');
+<<<<<<< HEAD
         
         container.innerHTML = '';
 
         if (!productList || productList.length === 0) {
 
             container.innerHTML = '<h1> No hay productos disponibles. ૮꒰ ˶╥ ༝ ╥˶꒱ა ♡ </h1>';
+=======
+        container.innerHTML = '';
+
+        if (!productList || productList.length === 0) {
+            container.innerHTML = '<h1>No hay productos disponibles. ૮꒰ ˶╥ ༝ ╥˶꒱ა ♡</h1>';
+>>>>>>> 64962b6 (semana 4)
             return;
         }
 
@@ -53,11 +64,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <div class="product-price"> 
                     ${product.currency} ${product.cost}
+<<<<<<< HEAD
     
                 <button id="ver-btn-${product.id}" class="btn btn-outline-secondary">Ver detalles</button>
                 </div>
             `;
             
+=======
+                <button id="ver-btn-${product.id}" class="btn btn-outline-secondary">Ver detalles</button>
+                </div>
+            `;
+
+>>>>>>> 64962b6 (semana 4)
             container.appendChild(productItem);
 
             // Agregar evento para guardar ID y redirigir
@@ -69,12 +87,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function filterAndSortProducts() {
         let filtered = products;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64962b6 (semana 4)
         const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
         const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
         const sortBy = document.getElementById('sort-options').value;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64962b6 (semana 4)
         // Filtro por el rango de precios
         filtered = filtered.filter(product => product.cost >= minPrice && product.cost <= maxPrice);
 
@@ -86,7 +110,11 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (sortBy === 'des-relevance') {
             filtered.sort((a, b) => b.soldCount - a.soldCount);
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 64962b6 (semana 4)
         filteredProducts = filtered;
         displayProducts(filteredProducts);
         updateResultsInfo();
@@ -104,7 +132,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> 64962b6 (semana 4)
     // Función para configurar los botones de vista
     function setupViewButtons() {
         const productList = document.getElementById('product-list');
@@ -131,15 +162,22 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("min-price").value = "";
         document.getElementById("max-price").value = "";
         document.getElementById("sort-options").value = "default";
+<<<<<<< HEAD
 
         location.reload();
     }
     
+=======
+        location.reload();
+    }
+
+>>>>>>> 64962b6 (semana 4)
     document.getElementById('min-price').addEventListener('input', filterAndSortProducts);
     document.getElementById('max-price').addEventListener('input', filterAndSortProducts);
     document.getElementById('sort-options').addEventListener('change', filterAndSortProducts);
     document.getElementById("clear-filter").addEventListener("click", clearFilters);
 
+<<<<<<< HEAD
 
 // Función para guardar el ID y redirigir a la página de detalles
 function saveProductId(id, category) {
@@ -176,3 +214,33 @@ function buscarEnProductos(e){
     buscarEnProductos();
 
 });
+=======
+    // Función para guardar el ID y redirigir a la página de detalles
+    function saveProductId(id, category) {
+        const queryString = `?id=${id}&category=${category}`;
+        window.location.href = `product-info.html${queryString}`;
+    }
+
+    // Función para buscar en productos
+    const buscador = document.getElementById('buscador');
+    buscador.addEventListener('input', function (e) {
+        const letras = e.target.value.toLowerCase();
+        const productos = document.querySelectorAll('.product-item');
+
+        productos.forEach(producto => {
+            const titulo = producto.querySelector('h2').textContent.toLowerCase();
+            const descripcion = producto.querySelector('p').textContent.toLowerCase();
+
+            if (titulo.includes(letras) || descripcion.includes(letras)) {
+                producto.style.display = '';
+            } else {
+                producto.style.display = 'none';
+            }
+        });
+    });
+
+    loadProducts();
+    setupViewButtons();
+});
+
+>>>>>>> 64962b6 (semana 4)
